@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小蘑菇网站后台管理</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="./js/1.js"></script>
+</head>
+<body bgcolor="#f7c4d3">
+    <h1 style="text-shadow: 1px 1px 2px #000000;">小蘑菇网站后台管理系统                               <!--顶部的内容-->
+	    <img style="float:right; maigin-right:50px"  src="05.gif">
+	</h1>        
+    <div id="content">                                 <!-- 中心的内容-->
+		<br/><br/>
+        <input type="button" id="add" style="float: right; margin-right: 50px" value="添加" onclick="add()"></input>
+            <div id="up"><br>&nbsp;<strong style="float:left; margin-left: 450px">影视记录列表</strong>
+                <strong style="float: right; margin-right: 170px">记录编辑表单</strong>
+            </div>
+
+                                                          <!-- 右边的内容 -->
+            <div id="formContent">
+                <br/><br/>
+				<p align="center"><strong>影视记录编辑</strong></p><br/>
+				<form action="#" method="post" enctype="multipart/form-data" name="form" method="POST" id="movieform">
+                    <table cellpadding="10" class="formlist">
+                        <tr>
+                            <td>上传海报：</td>
+							<td><input type="file" accept="image/*" name="pictureupload" id="uploadimg" onChange="showPic(this)" onclick="changeimg()"  onchange="var vpn_return;eval(vpn_rewrite_js((function () { showPic(this) }).toString().slice(14, -2), 2));return vpn_return;" onclick="var vpn_return;eval(vpn_rewrite_js((function () { changeimg() }).toString().slice(14, -2), 2));return vpn_return;"><br>
+                                <img src="6.jfif" id="preview" width="75" height="100">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>影视名称：</td>
+                            <td><input type="text" placeholder="请输入影视名称" name="moviename" id="mname"></td>
+                        </tr>
+                        <tr>
+                            <td>影视类别：</td>
+                            <td>
+								<select name="kindofmovie" id="komovie">
+                                    <option>都市爱情</option>
+                                    <option>古装历史</option>
+                                    <option>青春校园</option>
+                                    <option>玄幻史诗</option>
+                                    <option>科幻悬疑</option>
+                                    <option>其他</option>
+                                </select>
+							</td>
+                        </tr>
+                        <tr>
+                            <td>演员表：</td>
+                            <td><input type="text" placeholder="请输入主演名称" name="actorname" id="aname"></td>
+                        </tr>
+						
+                        <tr>
+                            <td>评分：</td>
+                            <td><input type="text" placeholder="请输入评分" name="moviescore" id="mscore"></td>
+                        </tr>
+						<tr>
+                            <td>年份：</td>
+                            <td><input type="date" value="2021-12-11" id="mdate"></td>
+                        </tr>
+                        <tr>
+                            <td>审核状况：</td>
+                            <td>
+                                <input type="radio" value="已审核" name="moviecheck" id="mcheck" checked="checked">已审核
+                                <input type="radio" value="未审核" name="moviecheck" id="mcheck">未审核
+                            </td>
+                        </tr>
+						<tr>
+						    <td>备注：</td>
+						    <td><textarea name="movieintroduce" id="mintroduce" cols="30" rows="50" ></textarea></td>
+						</tr>
+                    </table>
+                </form>
+                <input type="button" id="save" value="保存" onclick="save()">
+            </div> 
+
+                                                                                                <!-- 左边的表格 -->
+            <div id="tableContent">
+                <table cellpadding="5" cellspacing="5" class="tablelist" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>选择</th>
+                            <th>海报</th>
+                            <th>影视名称</th>
+                            <th>影视类别</th>
+                            <th>演员表</th>
+                            <th>年份</th>
+                            <th>评分</th>
+                            <th>审核情况</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <hr>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="checkItem" value=""></td>
+                            <td class="imgtd">
+							<img src="1.webp" alt="总之就是非常可爱" width="79px" height="109px"></td>
+                            <td>总之就是非常可爱</td>
+                            <td>都市爱情</td>
+                            <td>榎木淳弥/鬼头明里/芹泽优</td>
+                            <td>8.3</td>
+                            <td>2020-10-3</td>
+                            <td>已审核</td>
+                            <td>
+                                <a onclick="edit(this)" class="tablelink">编辑</a>
+                                <a onclick="deleteRow(this)" class="tablelink">删除</a>
+                            </td>
+                        </tr>
+						<tr>
+						    <td><input type="checkbox" name="checkItem" value=""></td>
+						    <td class="imgtd">
+							<img src="2.webp" alt="赘婿" width="79px" height="109px"></td>
+						    <td>赘婿</td>
+						    <td>古装历史</td>
+						    <td>郭麒麟/宋轶</td>
+						    <td>9.1</td>
+						    <td>2021-2-14</td>
+						    <td>已审核</td>
+						    <td><a onclick="edit(this)" class="tablelink">编辑</a>
+                                <a onclick="deleteRow(this)" class="tablelink">删除</a>
+                            </td>
+						</tr>
+						<tr>
+						    <td><input type="checkbox" name="checkItem" value=""></td>
+						    <td class="imgtd">
+							<img src="3.webp" alt="庆余年" width="79px" height="109px"></td>
+						    <td>庆余年</td>
+						    <td>古装历史</td>
+						    <td>张若昀/李沁/陈道明</td>
+						    <td>9.2</td>
+						    <td>2019-11-26</td>
+						    <td>已审核</td>
+						    <td><a onclick="edit(this)" class="tablelink">编辑</a>
+                                <a onclick="deleteRow(this)" class="tablelink">删除</a>
+                            </td>
+						</tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <br/>
+    <div id="clear"></div>
+    <div id="footer">关于小蘑菇 | About Tencent | 服务条款 | 广告服务 | 小蘑菇招聘 | 客服中心 | 网站导航</div>
+</body>
+</html>

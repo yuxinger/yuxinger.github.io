@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页模板 | 关于我</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1><a href="index.html">网页模板</a></h1>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">我的项目</a></li>
+                    <li><a class="current" href="contact.html">联系我</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="contact-form" class="py">
+        <div class="container">
+            <h1 class="l-heading" align="center"><span class="text-primary">联系我</span></h1><h2>该页面尚在完善中</h2>
+            <p>如有疑问请填写以下信息联系我！</p>
+            <form action="process.php">
+                <div class="form-group">
+                    <label for="">姓名：</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="">邮箱：</label>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="">反馈内容</label>
+                    <textarea type="text" name="message" id="message"></textarea>
+                </div>
+                <button type="submit" class="btn">提交</button>
+            </form>
+        </div>
+    </section>
+    <section id="features" class="bg-dark">
+        <div class="container">
+            <div class="box">
+                <i class="iconfont">&#xe6e3;</i>
+				<h3>web前端开发</h3>
+                <p>学习网页制作等等</p>
+            </div>
+            <div class="box">
+                <i class="iconfont">&#xe6e6;</i>
+                <h3>Java技术开发</h3>
+                <p>学习eclipse等软件</p>
+            </div>
+            <div class="box">
+                <i class="iconfont">&#xe6ef;</i>
+                <h3>计算机网络</h3>
+                <p>学习网线、局域网等</p>
+            </div>
+        </div>
+    </section>
+    <footer id="main-footer">
+        <p>yuxinger~制作&nbsp;目前将更新图形学相关内容</p>
+    </footer>
+</body>
+</html>
