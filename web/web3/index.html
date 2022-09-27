@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		</head>
+		<body>
+		<script type="text/javascript">
+		     var min = 3500,
+		    var levels = [
+			{lows: 0,high: 1500,rate: 0.03,sub: 0}, 
+			{lows: 1500,high: 4500,rate: 0.1,sub: 105}, 
+			{lows: 4500,high: 9000,rate: 0.2,sub: 555 }, 
+			{lows: 9000,high: 35000,rate: 0.25,sub: 1005}, 
+			{lows: 35000,high: 55000,rate: 0.3,sub: 2755},
+			{lows: 55000,high: 80000,rate: 0.35,sub: 5505}, 
+			{lows: 80000,high: 10000000,rate: 0.45,sub: 13505},
+			]
+		     function calcMonthTax(x)
+			 {
+		     	var a = x - min;
+		     	var tax = 0;
+		     	for (index in levels) 
+				{
+		     		if (a > levels[index].lows && a <= levels[index].high)
+					{
+		     			tax = a * levels[index].rate - levels[index].sub;
+		     		}
+		     	}
+		     	return tax;
+		     }
+		     function calcYearTax(x, y) 
+			 {
+		     	var tax = 0;
+		     	var a = x - min;
+		     	if (x >= min)
+				{
+		     		for (index in levels) 
+					{
+		     			if (a > levels[index].lows && a <= levels[index].high)
+						{
+		     				var y1 = y / 12.0;
+		     				tax = y * levels[index].rate - levels[index].sub;
+		     			}
+		     		}
+		     	} 
+				else
+				{
+		     		for (index in levels) {
+		     			if (a > levels[index].lows && a <= levels[index].high) {
+		     				var y2 = y - min + x;
+		     				tax = y2 * levels[index].rate - levels[index].sub;
+		     			}
+		     		}
+		     	}
+		     	return tax;
+		     }
+		     
+		     function result() 
+			 {
+		     	var x = document.getElementById('month').value;
+		     	var y = document.getElementById('year').value;
+		     	var tax1 = calcMonthTax(x);
+		     	var tax2 = calcYearTax(x, y);
+		     	var sum = tax1 * 12 + tax2;
+		     	document.getElementById('result').value = '月税' + tax1 + '  / ' + '年税' + tax2 + '  / ' + '总税' + sum;
+		     }
+		</script>
+						<b>月工资</b></div>
+						<input id="month" type="text" placeholder="请输入月工资" /><br/>
+						<b>年终奖</b></div>
+						<input id="year" type="text" placeholder="请输入年终奖"/><br/><br/>
+						<button type="text" onclick="return vpn_return;" style="cursor:pointer"><b>点击计算个人所得税</b></button><br/>
+						<input id="result" type="text" placeholder="月税/年税/总税" readonly="readonly">
+	</body>
+</html>

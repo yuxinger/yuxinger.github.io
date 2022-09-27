@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>什么是素数</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		 function isprime(n)
+			 {
+				 var z=true;
+				 for(var j=2;j<Math.sqrt(n);j++)
+					 {
+						 if(n%j==0)
+						 {
+							 z=false;
+							 break;
+						 }
+					 }
+					 return z;
+		      } 
+	    function acla()
+		{
+			document.write("<table >");
+			 for(var a=1;a<101;a++)
+			 {
+				    
+					 if(a%10==1)
+					 {
+						document.write("<tr></tr>");
+					}
+					 if(isprime(a)||a==1)
+					 {
+					 	document.write("<th bgcolor='FFFF66'>"+a+"</th>");
+					}
+					 else
+					 {
+					 	document.write("<th bgcolor='FFFFCC'>"+a+"</th>");
+					}
+		     }
+            document.write("</table>");
+		}
+		 onload=function(){
+			acla();
+			};
+		 </script> 
+	</body>
+</html>
